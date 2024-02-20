@@ -28,13 +28,13 @@ public class Main {
         PatientInfoRepository patientInfoRepository = new PatientInfoFileRepository(repoFile, mapper);
 
         String id1 = patientInfoRepository.add(
-            new PatientInfo("Иван", "Петров", LocalDate.of(1980, 11, 26),
-                new HealthInfo(new BigDecimal("36.65"), new BloodPressure(120, 80)))
+                new PatientInfo("Иван", "Петров", LocalDate.of(1980, 11, 26),
+                        new HealthInfo(new BigDecimal("36.65"), new BloodPressure(120, 80)))
         );
 
         String id2 = patientInfoRepository.add(
-            new PatientInfo("Семен", "Михайлов", LocalDate.of(1982, 1, 16),
-                new HealthInfo(new BigDecimal("36.6"), new BloodPressure(125, 78)))
+                new PatientInfo("Семен", "Михайлов", LocalDate.of(1982, 1, 16),
+                        new HealthInfo(new BigDecimal("36.6"), new BloodPressure(125, 78)))
         );
 
         SendAlertService alertService = new SendAlertServiceImpl();
@@ -44,7 +44,7 @@ public class Main {
         BloodPressure currentPressure = new BloodPressure(60, 120);
         medicalService.checkBloodPressure(id1, currentPressure);
 
-        BigDecimal currentTemperature = new BigDecimal("37.9");
+        BigDecimal currentTemperature = new BigDecimal("38.9");
         medicalService.checkTemperature(id1, currentTemperature);
     }
 }
